@@ -1,11 +1,11 @@
 {
   "name": "array-matchers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "For precise array matching only",
   "author": "Yoeri Nijs",
   "repository": {
     "type": "git",
-    "url": "git@github.com:YoeriNijs/array-matchers.git"
+    "url": "git+ssh://git@github.com/YoeriNijs/array-matchers.git"
   },
   "license": "GPL-3.0",
   "main": "lib/index.js",
@@ -51,5 +51,12 @@
   },
   "dependencies": {
     "pincet": "^0.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/YoeriNijs/array-matchers/issues"
+  },
+  "homepage": "https://github.com/YoeriNijs/array-matchers#readme",
+  "directories": {
+    "lib": "lib"
   }
 }
