@@ -2,13 +2,33 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "lib": [
+      "es2018"
+    ],
     "declaration": true,
+    "sourceMap": true,
     "outDir": "./lib",
     "strict": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "isolatedModules": true
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "array-matchers": [
+        "./src/index.ts"
+      ]
+    },
+    "esModuleInterop": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/tests/*"]
+  "files": [
+    "src/index.ts"
+  ]
 }
