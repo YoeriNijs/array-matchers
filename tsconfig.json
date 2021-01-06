@@ -28,6 +28,10 @@
     },
     "esModuleInterop": true
   },
+  "types": [
+    "jasmine",
+    "jest"
+  ],
   "files": [
     "src/index.ts"
   ]

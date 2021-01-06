@@ -1,6 +1,21 @@
 import * as pincet from 'pincet';
 
-export function toBeFlattened(values: unknown[]) {
-    const flattened = pincet.flatten<unknown>(values);
-    return pincet.isEqual(values, flattened)
+export type ToBeFlattened<T> = (expectationFailOutput?: T) => boolean;
+
+declare global {
+    namespace jasmine {
+        interface Matchers<T> {
+            toBeFlattened: ToBeFlattened<T>;
+        }
+    }
+    namespace jest {
+        interface Matchers<R> {
+            toBeFlattened: ToBeFlattened<R>;
+        }
+    }
+}
+
+export const toBeFlattened: ToBeFlattened<any> = (actual) => {
+    const flattened = pincet.flatten<any>(actual);
+    return pincet.isEqual(actual, flattened)
 }
