@@ -15,7 +15,10 @@ declare global {
     }
 }
 
-export const toBeFlattened: ToBeFlattened<any> = (actual) => {
-    const flattened = pincet.flatten<any>(actual);
-    return pincet.isEqual(actual, flattened)
-}
+export const toBeFlattened: ToBeFlattened<unknown> = <T>(actual: T): boolean => {
+    if (!Array.isArray(actual)) {
+        return false;
+    }
+    const flattened = pincet.flatten<T>(actual);
+    return pincet.isEqual<T>(actual, flattened)
+};

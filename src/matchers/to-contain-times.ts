@@ -19,5 +19,18 @@ declare global {
 export const toContainTimes: ToContainTimes<unknown> = (shouldContain: any[], times: number, actual: any) => {
     const filter = (aValue: any) => aValue && shouldContain.includes(aValue);
     const found = pincet.findAny<any>(actual, filter);
-    return found.length === times;
-}
+    const unique = pincet.unique<any>(found);
+    const counts: number[] = unique.map(u => found.filter(f => f === u).length);
+
+    if (counts.length < 1 && times !== 0) {
+        return false;
+    }
+
+    for (const count of counts) {
+        if (count !== times) {
+            return false;
+        }
+    }
+
+    return true;
+};
