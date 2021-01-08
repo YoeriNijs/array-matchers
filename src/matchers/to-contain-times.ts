@@ -21,5 +21,9 @@ export const toContainTimes: ToContainTimes<unknown> = (shouldContain: any[], ti
     const found = pincet.findAny<any>(actual, filter);
     const unique = pincet.unique<any>(found);
     const counts: number[] = unique.map(u => found.filter(f => f === u).length);
-    return counts.every(c => c === times);
+    if (counts.length < 1 && times > 0) {
+        return false;
+    } else {
+        counts.every(c => c === times);
+    }
 };
