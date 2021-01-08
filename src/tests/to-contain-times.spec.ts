@@ -34,3 +34,18 @@ test('it should return true if the value is found in nested array and times is o
     const result = toContainTimes(['aap'], 1, [['aap'], 'noot', 'mies']);
     expect(result).toBe(true);
 });
+
+test('it should return true if the values are found and times is one', () => {
+    const result = toContainTimes(['aap', 'noot'], 1, ['aap', 'noot', 'mies']);
+    expect(result).toBe(true);
+});
+
+test('it should return false if one of the values is found twice and times is one', () => {
+    const result = toContainTimes(['aap', 'noot'], 1, ['aap', 'noot', 'noot', 'mies']);
+    expect(result).toBe(false);
+});
+
+test('it should return false if one of the values is found twice with nested array and times is one', () => {
+    const result = toContainTimes(['aap', 'noot'], 1, ['aap', 'noot', ['noot'], 'mies']);
+    expect(result).toBe(false);
+});
