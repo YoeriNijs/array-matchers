@@ -24,6 +24,6 @@ export const toContainTimes: ToContainTimes<unknown> = (shouldContain: any[], ti
     if (counts.length < 1 && times > 0) {
         return false;
     } else {
-        counts.every(c => c === times);
+        return counts.every(c => c === times);
     }
 };
